@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="container about">
-        <Reveal className="about__media">
+        <Reveal className="about__media tilt">
           <MediaFrame src={aboutImage} alt="The Supplybase team at work" label="Team / site photo" ratio="4 / 5" />
           <div className="about__badge">
             <strong>10+</strong>
@@ -28,7 +28,7 @@ export default function About() {
 
           <div className="stages">
             {about.stages.map((s) => (
-              <div className="stage" key={s.key}>
+              <div className="stage tilt" key={s.key}>
                 <span className="icon-badge">
                   <Icon name={stageIcons[s.key]} />
                 </span>

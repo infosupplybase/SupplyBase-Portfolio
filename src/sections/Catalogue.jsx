@@ -3,21 +3,15 @@ import { catalogue } from '../data/catalogue.js'
 import { contact } from '../data/siteData.js'
 import SectionHeading from '../components/SectionHeading.jsx'
 import Icon from '../components/Icons.jsx'
-
-const PAGE = 12
+import Pagination from '../components/Pagination.jsx'
+import usePaged from '../hooks/usePaged.js'
 
 export default function Catalogue() {
   const [spaceId, setSpaceId] = useState(catalogue[0].id)
-  const [shown, setShown] = useState(PAGE)
   const [lightbox, setLightbox] = useState(null)
 
   const space = catalogue.find((s) => s.id === spaceId)
-  const items = space.items.slice(0, shown)
-
-  const pick = (id) => {
-    setSpaceId(id)
-    setShown(PAGE)
-  }
+  const paged = usePaged(space.items, 4, spaceId)
 
   useEffect(() => {
     if (!lightbox) return
@@ -42,7 +36,7 @@ export default function Catalogue() {
               role="tab"
               aria-selected={spaceId === s.id}
               className={`filter ${spaceId === s.id ? 'is-active' : ''}`}
-              onClick={() => pick(s.id)}
+              onClick={() => setSpaceId(s.id)}
             >
               {s.title} <span className="filter__count">{s.items.length}</span>
             </button>
@@ -51,9 +45,9 @@ export default function Catalogue() {
 
         {space.note && <p className="catalogue-space-note">{space.note}</p>}
 
-        <div className="catalogue-grid">
-          {items.map((item) => (
-            <button key={item.src} className="catalogue-card" onClick={() => setLightbox(item)}>
+        <div className="catalogue-grid row-4 page-in" key={`${spaceId}-${paged.page}`}>
+          {paged.items.map((item) => (
+            <button key={item.src} className="catalogue-card tilt" onClick={() => setLightbox(item)}>
               <img src={item.src} alt={item.title} loading="lazy" />
               <span className="catalogue-card__info">
                 <strong>{item.title}</strong>
@@ -63,13 +57,9 @@ export default function Catalogue() {
             </button>
           ))}
         </div>
+        <Pagination {...paged} onChange={paged.setPage} label={space.title} />
 
         <div className="catalogue-actions">
-          {shown < space.items.length && (
-            <button className="btn btn--outline" onClick={() => setShown(space.items.length)}>
-              View all {space.items.length} {space.title}
-            </button>
-          )}
           <a
             className="btn btn--gold"
             href={space.bookUrl || `https://www.supplybase.co.in/interior-by-choice/${space.id}`}

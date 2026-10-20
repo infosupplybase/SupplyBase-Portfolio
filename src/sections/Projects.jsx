@@ -4,6 +4,8 @@ import { projects } from '../data/media.js'
 import SectionHeading from '../components/SectionHeading.jsx'
 import MediaFrame from '../components/MediaFrame.jsx'
 import Icon from '../components/Icons.jsx'
+import Pagination from '../components/Pagination.jsx'
+import usePaged from '../hooks/usePaged.js'
 
 export default function Projects() {
   const [filter, setFilter] = useState('all')
@@ -11,6 +13,7 @@ export default function Projects() {
 
   const visible = filter === 'all' ? projects : projects.filter((p) => p.category === filter)
   // Only offer filter tabs that have at least one project
+  const paged = usePaged(visible, 4, filter)
   const tabs = projectCategories.filter((c) => c.id === 'all' || projects.some((p) => p.category === c.id))
 
   useEffect(() => {
@@ -43,11 +46,11 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="projects-grid">
-          {visible.map((p) => (
+        <div className="projects-grid row-4 page-in" key={`${filter}-${paged.page}`}>
+          {paged.items.map((p) => (
             <button
               key={p.id}
-              className="project-card"
+              className="project-card tilt"
               onClick={() => p.src && setLightbox(p)}
               aria-label={`${p.title}, ${p.project}`}
             >
@@ -62,6 +65,7 @@ export default function Projects() {
             </button>
           ))}
         </div>
+        <Pagination {...paged} onChange={paged.setPage} label="projects" />
       </div>
 
       {lightbox && (

@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <div className="cta">
+        <div className="cta tilt">
           <span className="eyebrow">Let's Get Started</span>
           <h2>Ready to Start Your Project?</h2>
           <p>Tell us what you are planning and we will come back with a clear, itemised quotation.</p>
@@ -28,7 +28,7 @@ export default function Contact() {
 
         <div className="contact-grid">
           {cards.map((c) => (
-            <div className="contact-card" key={c.title}>
+            <div className="contact-card tilt" key={c.title}>
               <span className="icon-badge">
                 <Icon name={c.icon} />
               </span>

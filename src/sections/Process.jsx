@@ -13,7 +13,7 @@ export default function Process() {
         />
         <ol className="process">
           {process.map((p, i) => (
-            <Reveal as="li" className="process__step" key={p.step} delay={i * 100}>
+            <Reveal as="li" className="process__step tilt" key={p.step} delay={i * 100}>
               <span className="process__num">{p.step}</span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>

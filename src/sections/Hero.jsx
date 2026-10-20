@@ -20,6 +20,7 @@ export default function Hero() {
         heroMedia.poster && <img className="hero__bg" src={heroMedia.poster} alt="" />
       )}
       <div className="hero__overlay" />
+      <div className="hero__floor" aria-hidden="true" />
 
       <div className="container hero__inner">
         <div className="hero__content">
@@ -45,7 +46,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="hero__logo">
+        <div className="hero__logo tilt tilt--strong">
           <img src={logo} alt={`${company.name} — ${company.tagline}`} />
         </div>
       </div>

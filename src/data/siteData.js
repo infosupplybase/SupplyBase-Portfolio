@@ -100,13 +100,6 @@ export const services = [
 
 export const comingSoon = ['Plumber', 'Electrician', 'AC Services']
 
-export const stats = [
-  { value: 100, suffix: '+', label: 'Projects Completed' },
-  { value: 30, suffix: '+', label: 'Skilled Professionals' },
-  { value: 10, suffix: '+', label: 'Years of Experience' },
-  { value: 100, suffix: '%', label: 'Client Satisfaction' },
-]
-
 export const whyChoose = [
   {
     title: 'One Partner for Everything',

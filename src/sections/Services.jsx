@@ -4,6 +4,8 @@ import SectionHeading from '../components/SectionHeading.jsx'
 import MediaFrame from '../components/MediaFrame.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Icon from '../components/Icons.jsx'
+import Pagination from '../components/Pagination.jsx'
+import usePaged from '../hooks/usePaged.js'
 
 const serviceIcons = {
   'interior-design': 'sofa',
@@ -14,6 +16,8 @@ const serviceIcons = {
 }
 
 export default function Services() {
+  const paged = usePaged(services)
+
   return (
     <section id="services" className="section section--dark">
       <div className="container">
@@ -23,9 +27,9 @@ export default function Services() {
           text="Design, repairs and finishing are handled by one team, so nothing is lost in handover between trades."
         />
 
-        <div className="services-grid">
-          {services.map((s, i) => (
-            <Reveal as="article" className="service-card" key={s.id} delay={i * 80}>
+        <div className="services-grid row-4" key={paged.page}>
+          {paged.items.map((s, i) => (
+            <Reveal as="article" className="service-card tilt" key={s.id} delay={i * 80}>
               <MediaFrame src={serviceImages[s.id]} alt={s.title} label={s.title} ratio="16 / 10" />
               <div className="service-card__body">
                 <span className="icon-badge">
@@ -37,6 +41,7 @@ export default function Services() {
             </Reveal>
           ))}
         </div>
+        <Pagination {...paged} onChange={paged.setPage} label="services" />
 
         <div className="coming-soon">
           <span className="coming-soon__label">Coming Soon</span>
