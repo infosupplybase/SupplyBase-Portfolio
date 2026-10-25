@@ -423,6 +423,35 @@ export const catalogue = [
       {
         "title": "Designer Panel",
         "src": "/images/ibc/living-room/05.webp"
+      },
+      
+      {
+        "title": "Living Room Design 1",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-1.jpg"
+      },
+      {
+        "title": "Living Room Design 2",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-2.png"
+      },
+      {
+        "title": "Living Room Design 3",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-3.png"
+      },
+      {
+        "title": "Living Room Design 4",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-4.png"
+      },
+      {
+        "title": "Living Room Design 5",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-5.png"
+      },
+      {
+        "title": "Living Room Design 6",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-6.png"
+      },
+      {
+        "title": "Living Room Design 7",
+        "src": "/images/Interior%20Catalogue/Living%20Room/living-room-7.png"
       }
     ]
   },
@@ -450,5 +479,56 @@ export const catalogue = [
       { "title": "Full Home POP", "text": "Complete POP ceiling work for 1 BHK to 4 BHK / Villa.", "src": "/images/ibc/pop-ceiling/full-home.webp" },
       { "title": "POP Ceiling & Design", "text": "Elegant ceilings. Beautiful spaces. Expert installation.", "src": "/images/ibc/pop-ceiling/service.webp" }
     ]
-  }
+  },
+  
+  {
+    "id": "bedroom",
+    "title": "Bedroom",
+    "items": [
+      { "title": "Bedroom Design 1", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-1.png" },
+      { "title": "Bedroom Design 2", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-2.png" },
+      { "title": "Bedroom Design 3", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-3.png" },
+      { "title": "Bedroom Design 4", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-4.png" },
+      { "title": "Bedroom Design 5", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-5.png" },
+      { "title": "Bedroom Design 6", "src": "/images/Interior%20Catalogue/Bedroom/bedroom-6.png" }
+    ]
+  },
+  {
+    "id": "hall",
+    "title": "Hall",
+    "items": [
+      { "title": "Hall Design 1", "src": "/images/Interior%20Catalogue/Hall/hall-1.png" },
+      { "title": "Hall Design 2", "src": "/images/Interior%20Catalogue/Hall/hall-2.png" },
+      { "title": "Hall Design 3", "src": "/images/Interior%20Catalogue/Hall/hall-3.png" },
+      { "title": "Hall Design 4", "src": "/images/Interior%20Catalogue/Hall/hall-4.png" },
+      { "title": "Hall Design 5", "src": "/images/Interior%20Catalogue/Hall/hall-5.png" },
+      { "title": "Hall Design 6", "src": "/images/Interior%20Catalogue/Hall/hall-6.png" },
+      { "title": "Hall Design 7", "src": "/images/Interior%20Catalogue/Hall/hall-7.png" },
+      { "title": "Hall Design 8", "src": "/images/Interior%20Catalogue/Hall/hall-8.png" },
+      { "title": "Hall Design 9", "src": "/images/Interior%20Catalogue/Hall/hall-9.png" },
+      { "title": "Hall Design 10", "src": "/images/Interior%20Catalogue/Hall/hall-10.png" },
+      { "title": "Hall Design 11", "src": "/images/Interior%20Catalogue/Hall/hall-11.png" },
+      { "title": "Hall Design 12", "src": "/images/Interior%20Catalogue/Hall/hall-12.png" },
+      { "title": "Hall Design 13", "src": "/images/Interior%20Catalogue/Hall/hall-13.png" },
+      { "title": "Hall Design 14", "src": "/images/Interior%20Catalogue/Hall/hall-14.png" },
+      { "title": "Hall Design 15", "src": "/images/Interior%20Catalogue/Hall/hall-15.png" },
+      { "title": "Hall Design 16", "src": "/images/Interior%20Catalogue/Hall/hall-16.png" }
+    ]
+  },
+  {
+    "id": "kitchen",
+    "title": "Kitchen",
+    "items": [
+      { "title": "Kitchen Design 1", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-1.png" },
+      { "title": "Kitchen Design 2", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-2.png" },
+      { "title": "Kitchen Design 3", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-3.png" },
+      { "title": "Kitchen Design 4", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-4.png" },
+      { "title": "Kitchen Design 5", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-5.png" },
+      { "title": "Kitchen Design 6", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-6.png" },
+      { "title": "Kitchen Design 7", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-7.png" },
+      { "title": "Kitchen Design 8", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-8.png" },
+      { "title": "Kitchen Design 9", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-9.png" },
+      { "title": "Kitchen Design 10", "src": "/images/Interior%20Catalogue/Kitchen/kitchen-10.png" }
+    ]
+  },
 ]

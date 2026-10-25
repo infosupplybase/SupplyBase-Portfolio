@@ -55,6 +55,8 @@ export const videoCategories = [
       video('15', 'Full Home Transformation'),
       video('13', 'Apartment Before & After'),
       video('08', 'Concept Before & After'),
+      video('17', 'Before & After 2 BHK'),
+      video('18', 'Before & After 1 BHK'),
     ],
   },
   {
