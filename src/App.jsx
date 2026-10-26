@@ -4,6 +4,7 @@ import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Hero from './sections/Hero.jsx'
 import About from './sections/About.jsx'
 import Services from './sections/Services.jsx'
+import DesignCatalogue from './sections/DesignCatalogue.jsx'
 import Catalogue from './sections/Catalogue.jsx'
 import WhyChoose from './sections/WhyChoose.jsx'
 import Projects from './sections/Projects.jsx'
@@ -23,6 +24,7 @@ export default function App() {
         <Hero />
         <About />
         <Services />
+        <DesignCatalogue />
         <Catalogue />
         <WhyChoose />
         <Projects />

@@ -9,7 +9,7 @@ export default function Process() {
         <SectionHeading
           eyebrow="How It Works"
           title="From First Call to Final Handover"
-          text="Four clear stages, so you always know where your project stands."
+          text="Five clear steps, so what you approve on the design board is what you live in."
         />
         <ol className="process">
           {process.map((p, i) => (

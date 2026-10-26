@@ -19,6 +19,7 @@ Build for production with `npm run build` (output in `dist/`).
 |---|---|
 | `src/data/siteData.js` | All text: services, stats, process, FAQ, contact details |
 | `src/data/media.js` | Hero video, service images, project photos, video sliders |
+| `src/data/designCatalogue.js` | Interior Design Catalogue: 64 SB-coded designs with highlights and finishes (images in `public/images/catalogue`) |
 | `src/data/catalogue.js` | Design Gallery (Interior by Choice, waterproofing, POP ceilings) |
 | `src/sections/` | One component per page section |
 | `src/components/` | Navbar, footer, shared UI |
