@@ -397,7 +397,25 @@ export const catalogue = [
       {
         "title": "Modern Fluted TV Unit",
         "src": "/images/ibc/tv-wall/28.webp"
-      }
+      },
+      
+      { "title": "TV Unit Design 1", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-1.png" },
+      { "title": "TV Unit Design 2", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-2.png" },
+      { "title": "TV Unit Design 3", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-3.png" },
+      { "title": "TV Unit Design 4", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-4.png" },
+      { "title": "TV Unit Design 5", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-5.png" },
+      { "title": "TV Unit Design 6", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-6.png" },
+      { "title": "TV Unit Design 7", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-7.png" },
+      { "title": "TV Unit Design 8", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-8.png" },
+      { "title": "TV Unit Design 9", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-9.png" },
+      { "title": "TV Unit Design 10", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-10.png" },
+      { "title": "TV Unit Design 11", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-11.png" },
+      { "title": "TV Unit Design 12", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-12.png" },
+      { "title": "TV Unit Design 13", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-13.png" },
+      { "title": "TV Unit Design 14", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-14.png" },
+      { "title": "TV Unit Design 15", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-15.png" },
+      { "title": "TV Unit Design 16", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-16.png" },
+      { "title": "TV Unit Design 17", "src": "/images/Interior%20Catalogue/TV%20Unit/tv-17.png" },
     ]
   },
   {
@@ -477,7 +495,33 @@ export const catalogue = [
     "items": [
       { "title": "Living Room Cove Ceiling", "text": "Cove ceiling designed around concealed lighting.", "src": "/images/ibc/pop-ceiling/living-room-cove.webp" },
       { "title": "Full Home POP", "text": "Complete POP ceiling work for 1 BHK to 4 BHK / Villa.", "src": "/images/ibc/pop-ceiling/full-home.webp" },
-      { "title": "POP Ceiling & Design", "text": "Elegant ceilings. Beautiful spaces. Expert installation.", "src": "/images/ibc/pop-ceiling/service.webp" }
+      { "title": "POP Ceiling & Design", "text": "Elegant ceilings. Beautiful spaces. Expert installation.", "src": "/images/ibc/pop-ceiling/service.webp" },
+      
+      { "title": "POP Ceiling Design 1", "src": "/images/Interior%20Catalogue/Pop/pop-1.png" },
+      { "title": "POP Ceiling Design 2", "src": "/images/Interior%20Catalogue/Pop/pop-2.png" },
+      { "title": "POP Ceiling Design 3", "src": "/images/Interior%20Catalogue/Pop/pop-3.png" },
+      { "title": "POP Ceiling Design 4", "src": "/images/Interior%20Catalogue/Pop/pop-4.png" },
+      { "title": "POP Ceiling Design 5", "src": "/images/Interior%20Catalogue/Pop/pop-5.png" },
+      { "title": "POP Ceiling Design 6", "src": "/images/Interior%20Catalogue/Pop/pop-6.png" },
+      { "title": "POP Ceiling Design 7", "src": "/images/Interior%20Catalogue/Pop/pop-7.png" },
+      { "title": "POP Ceiling Design 8", "src": "/images/Interior%20Catalogue/Pop/pop-8.png" },
+      { "title": "POP Ceiling Design 9", "src": "/images/Interior%20Catalogue/Pop/pop-9.png" },
+      { "title": "POP Ceiling Design 10", "src": "/images/Interior%20Catalogue/Pop/pop-10.png" },
+      { "title": "POP Ceiling Design 11", "src": "/images/Interior%20Catalogue/Pop/pop-11.png" },
+      { "title": "POP Ceiling Design 12", "src": "/images/Interior%20Catalogue/Pop/pop-12.png" },
+      { "title": "POP Ceiling Design 13", "src": "/images/Interior%20Catalogue/Pop/pop-13.png" },
+      { "title": "POP Ceiling Design 14", "src": "/images/Interior%20Catalogue/Pop/pop-14.png" },
+      { "title": "POP Ceiling Design 15", "src": "/images/Interior%20Catalogue/Pop/pop-15.png" },
+      { "title": "POP Ceiling Design 16", "src": "/images/Interior%20Catalogue/Pop/pop-16.png" },
+      { "title": "POP Ceiling Design 17", "src": "/images/Interior%20Catalogue/Pop/pop-17.png" },
+      { "title": "POP Ceiling Design 18", "src": "/images/Interior%20Catalogue/Pop/pop-18.png" },
+      { "title": "POP Ceiling Design 19", "src": "/images/Interior%20Catalogue/Pop/pop-19.png" },
+      { "title": "POP Ceiling Design 20", "src": "/images/Interior%20Catalogue/Pop/pop-20.png" },
+      { "title": "POP Ceiling Design 21", "src": "/images/Interior%20Catalogue/Pop/pop-21.png" },
+      { "title": "POP Ceiling Design 22", "src": "/images/Interior%20Catalogue/Pop/pop-22.png" },
+      { "title": "POP Ceiling Design 23", "src": "/images/Interior%20Catalogue/Pop/pop-23.png" },
+      { "title": "POP Ceiling Design 24", "src": "/images/Interior%20Catalogue/Pop/pop-24.png" },
+      { "title": "POP Ceiling Design 25", "src": "/images/Interior%20Catalogue/Pop/pop-25.png" },
     ]
   },
   
