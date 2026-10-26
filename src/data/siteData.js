@@ -17,6 +17,7 @@ export const contact = {
     { label: '+91 91373 06446', href: 'tel:+919137306446' },
     { label: '+91 83569 28520', href: 'tel:+918356928520' },
   ],
+  whatsappNumber: '918356928520',
   whatsapp:
     'https://wa.me/918356928520?text=Hello%20Supplybase%2C%20I%20would%20like%20to%20discuss%20a%20project.',
   email: 'info.supplybase@gmail.com',
@@ -31,6 +32,7 @@ export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
+  { id: 'catalogue', label: 'Catalogue' },
   { id: 'designs', label: 'Designs' },
   { id: 'projects', label: 'Projects' },
   { id: 'videos', label: 'Videos' },
@@ -131,22 +133,27 @@ export const process = [
   {
     step: '01',
     title: 'Consultation',
-    text: 'Share your requirements, and we assess the site, scope, and budget.',
+    text: 'Tell us about your home, needs and budget.',
   },
   {
     step: '02',
-    title: 'Planning & Design',
-    text: 'We plan, design and visualise your project in 2D drawings and 3D views before work begins.',
+    title: 'Site Visit',
+    text: 'We measure and study the space.',
   },
   {
     step: '03',
-    title: 'Execution',
-    text: 'Supervised quality, on-time and on-budget delivery.',
+    title: 'Design Board',
+    text: 'You approve layouts, materials and colours on a material board.',
   },
   {
     step: '04',
+    title: 'Execution',
+    text: 'Our team builds and installs, with supervised quality.',
+  },
+  {
+    step: '05',
     title: 'Handover',
-    text: 'We finish, clean, and hand over a ready-to-use project.',
+    text: 'A finished home, ready to live in.',
   },
 ]
 
