@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { catalogueIntro, designSpaces } from '../data/designCatalogue.js'
 import { contact } from '../data/siteData.js'
 import SectionHeading from '../components/SectionHeading.jsx'
+import Dialog from '../components/Dialog.jsx'
 import Icon from '../components/Icons.jsx'
 import Pagination from '../components/Pagination.jsx'
 import usePaged from '../hooks/usePaged.js'
@@ -9,8 +10,8 @@ import usePaged from '../hooks/usePaged.js'
 const askUrl = (d) =>
   `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(
     d.code
-      ? `Hello Supplybase, I like design ${d.code} (${d.name}) from your catalogue. Please share details.`
-      : `Hello Supplybase, I like the ${d.name} design from your portfolio. Please share details.`,
+      ? `Hello SupplyBase, I like design ${d.code} (${d.name}) from your catalogue. Please share details.`
+      : `Hello SupplyBase, I like the ${d.name} design from your portfolio. Please share details.`,
   )}`
 
 export default function DesignCatalogue() {
@@ -19,87 +20,81 @@ export default function DesignCatalogue() {
 
   const space = designSpaces.find((s) => s.id === spaceId)
   const items = [...space.designs, ...space.more]
-  const paged = usePaged(items, 4, spaceId)
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e) => e.key === 'Escape' && setOpen(null)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+  const paged = usePaged(items, 8, spaceId)
 
   return (
-    <section id="catalogue" className="section section--dark">
+    <section id="catalogue" className="section section--paper">
       <div className="container">
         <SectionHeading
+          index="02"
           eyebrow="Interior Design Catalogue · 2026 Edition"
-          title="64 Design Concepts"
-          text="Living rooms, halls, TV units, dining, kitchens, bedrooms and false ceilings. Each design comes with a material board, highlights and finishes."
+          title={
+            <>
+              64 design <em>concepts</em>
+            </>
+          }
+          text="Living rooms, halls, TV units, dining, kitchens, bedrooms and false ceilings. These are design ideas, not finished jobs: each comes with a material board, highlights and finishes, and is adapted to your home."
         />
 
-        <ul className="cat-stats">
+        <ul className="stats">
           {catalogueIntro.stats.map((s) => (
             <li key={s.label}>
-              <strong className="text-gold">{s.value}</strong>
+              <strong>{s.value}</strong>
               <span>{s.label}</span>
             </li>
           ))}
         </ul>
 
-        <div className="filters" role="tablist">
+        <div className="tabs" role="group" aria-label="Choose a space">
           {designSpaces.map((s) => (
             <button
               key={s.id}
-              role="tab"
-              aria-selected={spaceId === s.id}
-              className={`filter ${spaceId === s.id ? 'is-active' : ''}`}
+              className={`tab ${spaceId === s.id ? 'is-active' : ''}`}
+              aria-pressed={spaceId === s.id}
               onClick={() => setSpaceId(s.id)}
             >
-              {s.title} <span className="filter__count">{s.designs.length + s.more.length}</span>
+              {s.title} <span className="tab__count">{s.designs.length + s.more.length}</span>
             </button>
           ))}
         </div>
 
-        <p className="catalogue-space-note">{space.text}</p>
+        <p className="space-note">{space.text}</p>
 
-        <div className="catalogue-grid row-4 page-in" key={`${spaceId}-${paged.page}`}>
+        <div className="design-grid page-in" key={`${spaceId}-${paged.page}`}>
           {paged.items.map((d) => (
-            <button key={d.src} className="catalogue-card design-card tilt" onClick={() => setOpen(d)}>
-              <img src={d.src} alt={d.name} loading="lazy" />
-              <span className="catalogue-card__info">
+            <button key={d.src} className="design-card" onClick={() => setOpen(d)}>
+              <span className="design-card__media">
+                <img src={d.src} alt="" loading="lazy" />
+              </span>
+              <span className="design-card__info">
                 {d.code && <span className="design-code">{d.code}</span>}
                 <strong>{d.name}</strong>
-                {d.highlights && <small className="design-card__text">{d.highlights}</small>}
-                {d.finishes && (
-                  <span className="design-card__finishes">{d.finishes.slice(0, 4).join(' · ')}</span>
-                )}
+                {d.finishes && <small>{d.finishes.slice(0, 4).join(' · ')}</small>}
               </span>
             </button>
           ))}
         </div>
         <Pagination {...paged} onChange={paged.setPage} label={space.title} />
 
-        <p className="catalogue-note">{catalogueIntro.text}</p>
-        <div className="catalogue-actions">
-          <a className="btn btn--gold" href={contact.whatsapp} target="_blank" rel="noreferrer">
-            <Icon name="whatsapp" size={18} /> Ask About a Design
+        <p className="section-note">
+          {catalogueIntro.text}{' '}
+          <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+            Ask about a design on WhatsApp
           </a>
-        </div>
+          .
+        </p>
       </div>
 
-      {open && (
-        <div className="lightbox design-modal" onClick={() => setOpen(null)} role="dialog" aria-modal="true">
-          <button className="lightbox__close" aria-label="Close">
-            <Icon name="close" />
-          </button>
-          <div className="design-modal__panel" onClick={(e) => e.stopPropagation()}>
-            <div className="design-modal__media">
+      <Dialog open={!!open} onClose={() => setOpen(null)} label={open?.name} className="details">
+        {open && (
+          <div className="details__layout">
+            <div className="details__media details__media--stack">
               <img src={open.src} alt={open.name} />
               {open.detail && <img src={open.detail} alt={`${open.name}, detail view`} loading="lazy" />}
             </div>
-            <div className="design-modal__body">
+            <div className="details__body">
               {open.code && <span className="design-code">{open.code}</span>}
-              <span className="eyebrow">{space.title}</span>
+              <span className="eyebrow">{space.title} · Design idea</span>
               <h3>{open.name}</h3>
               {open.highlights && (
                 <>
@@ -119,17 +114,17 @@ export default function DesignCatalogue() {
                   </ul>
                 </>
               )}
-              <p className="design-modal__note">
+              <p className="details__note">
                 Can be customised to your floor plan, budget and taste. Final scope and price are confirmed after a
                 site visit.
               </p>
-              <a className="btn btn--gold" href={askUrl(open)} target="_blank" rel="noreferrer">
+              <a className="btn btn--primary" href={askUrl(open)} target="_blank" rel="noreferrer">
                 <Icon name="whatsapp" size={18} /> Ask About {open.code || 'This Design'}
               </a>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </Dialog>
     </section>
   )
 }

@@ -1,35 +1,35 @@
-import Navbar from './components/Navbar.jsx'
+import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import Marquee from './components/Marquee.jsx'
 import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Hero from './sections/Hero.jsx'
-import About from './sections/About.jsx'
-import Services from './sections/Services.jsx'
+import Work from './sections/Work.jsx'
 import DesignCatalogue from './sections/DesignCatalogue.jsx'
 import Catalogue from './sections/Catalogue.jsx'
-import WhyChoose from './sections/WhyChoose.jsx'
-import Projects from './sections/Projects.jsx'
-import Videos from './sections/Videos.jsx'
+import Services from './sections/Services.jsx'
+import About from './sections/About.jsx'
 import Process from './sections/Process.jsx'
+import Reviews from './sections/Reviews.jsx'
 import FAQ from './sections/FAQ.jsx'
 import Contact from './sections/Contact.jsx'
-import useTilt3D from './hooks/useTilt3D.js'
 
 export default function App() {
-  useTilt3D()
-
   return (
     <>
-      <Navbar />
-      <main>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
         <Hero />
-        <About />
-        <Services />
+        <Marquee />
+        <Work />
         <DesignCatalogue />
         <Catalogue />
-        <WhyChoose />
-        <Projects />
-        <Videos />
+        <Services />
+        <About />
         <Process />
+        <Reviews />
         <FAQ />
         <Contact />
       </main>

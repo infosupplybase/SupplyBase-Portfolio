@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-// Fades children in the first time they scroll into view.
+// Fades/slides children in the first time they scroll into view.
+// Content is only hidden once JS has run (the .reveal class is set here),
+// and index.css skips the motion for prefers-reduced-motion.
 export default function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
@@ -15,7 +17,7 @@ export default function Reveal({ children, delay = 0, as: Tag = 'div', className
           observer.disconnect()
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -25,7 +27,7 @@ export default function Reveal({ children, delay = 0, as: Tag = 'div', className
     <Tag
       ref={ref}
       className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
-      style={{ '--reveal-delay': `${delay}ms` }}
+      style={delay ? { '--reveal-delay': `${delay}ms` } : undefined}
       {...rest}
     >
       {children}

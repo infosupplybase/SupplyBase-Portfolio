@@ -1,59 +1,68 @@
-import logo from '../assets/logo/supplybase-logo.jpg'
-import { hero, company, contact } from '../data/siteData.js'
-import { heroMedia } from '../data/media.js'
+import { hero, company } from '../data/siteData.js'
+import { heroMedia, work } from '../data/media.js'
 import Icon from '../components/Icons.jsx'
+
+const featured = work.find((w) => w.cover === heroMedia.image)
 
 export default function Hero() {
   return (
     <section id="home" className="hero">
-      {heroMedia.video ? (
-        <video
-          className="hero__bg"
-          src={heroMedia.video}
-          poster={heroMedia.poster || undefined}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-      ) : (
-        heroMedia.poster && <img className="hero__bg" src={heroMedia.poster} alt="" />
-      )}
-      <div className="hero__overlay" />
-      <div className="hero__floor" aria-hidden="true" />
-
-      <div className="container hero__inner">
-        <div className="hero__content">
-          <span className="eyebrow">{hero.eyebrow}</span>
-          <h1>
+      <div className="container hero__grid">
+        <div className="hero__copy">
+          <span className="eyebrow hero__eyebrow">{hero.eyebrow}</span>
+          <h1 className="hero__title">
             {hero.titleLines.map((line, i) => (
-              <span key={line} className={i === 1 ? 'text-gold' : ''}>
-                {line}
+              <span className="line" key={line}>
+                <span style={{ '--i': i }}>{i === hero.titleLines.length - 1 ? <em>{line}</em> : line}</span>
               </span>
             ))}
           </h1>
           <p className="hero__text">{hero.text}</p>
           <div className="hero__actions">
-            <a href="#projects" className="btn btn--gold">
-              View Our Work <Icon name="arrow" size={18} />
+            <a href="#work" className="btn btn--primary">
+              Explore Our Work <Icon name="arrow" size={18} />
             </a>
-            <a href={contact.whatsapp} className="btn btn--outline" target="_blank" rel="noreferrer">
-              <Icon name="whatsapp" size={18} /> WhatsApp Us
+            <a href="#contact" className="btn btn--ghost">
+              Start Your Project
             </a>
           </div>
-          <p className="hero__area">
-            <Icon name="pin" size={16} /> Serving {company.area}
-          </p>
+          <dl className="hero__facts">
+            <div>
+              <dt>Serving</dt>
+              <dd>{company.area}</dd>
+            </div>
+            <div>
+              <dt>One team for</dt>
+              <dd>Labour, material &amp; supervision</dd>
+            </div>
+          </dl>
         </div>
 
-        <div className="hero__logo tilt tilt--strong">
-          <img src={logo} alt={`${company.name} — ${company.tagline}`} />
+        <div className="hero__media">
+          <figure className="hero__photo">
+            <img src={heroMedia.image} alt={featured ? `${featured.title}, a SupplyBase project` : ''} fetchPriority="high" />
+            {featured && (
+              <figcaption>
+                <span>Completed project</span>
+                {featured.title}
+              </figcaption>
+            )}
+          </figure>
+          <div className="hero__clip" aria-hidden="true">
+            <video src={heroMedia.video} poster={heroMedia.poster} autoPlay muted loop playsInline preload="metadata" />
+          </div>
+          <svg className="hero__seal" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <path id="seal-path" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0" />
+            </defs>
+            <text>
+              <textPath href="#seal-path" textLength="286" lengthAdjust="spacing">
+                One Partner · Complete Project ·
+              </textPath>
+            </text>
+          </svg>
         </div>
       </div>
-
-      <a href="#about" className="hero__scroll" aria-label="Scroll to About">
-        <span />
-      </a>
     </section>
   )
 }

@@ -1,56 +1,44 @@
 import { services, comingSoon } from '../data/siteData.js'
 import { serviceImages } from '../data/media.js'
 import SectionHeading from '../components/SectionHeading.jsx'
-import MediaFrame from '../components/MediaFrame.jsx'
 import Reveal from '../components/Reveal.jsx'
-import Icon from '../components/Icons.jsx'
-import Pagination from '../components/Pagination.jsx'
-import usePaged from '../hooks/usePaged.js'
-
-const serviceIcons = {
-  'interior-design': 'sofa',
-  'interior-by-choice': 'palette',
-  painting: 'roller',
-  waterproofing: 'drop',
-  'pop-ceiling': 'ceiling',
-}
+import ArrowLink from '../components/ArrowLink.jsx'
 
 export default function Services() {
-  const paged = usePaged(services)
-
   return (
     <section id="services" className="section section--dark">
       <div className="container">
         <SectionHeading
+          index="04"
           eyebrow="What We Do"
-          title="Our Services"
-          text="Design, repairs and finishing are handled by one team, so nothing is lost in handover between trades."
+          title={
+            <>
+              Services, <em>under one roof</em>
+            </>
+          }
+          text="Design, repairs and finishing are handled by one team, so nothing is lost in the handover between trades."
         />
 
-        <div className="services-grid row-4" key={paged.page}>
-          {paged.items.map((s, i) => (
-            <Reveal as="article" className="service-card tilt" key={s.id} delay={i * 80}>
-              <MediaFrame src={serviceImages[s.id]} alt={s.title} label={s.title} ratio="16 / 10" />
-              <div className="service-card__body">
-                <span className="icon-badge">
-                  <Icon name={serviceIcons[s.id]} />
-                </span>
-                <h3>{s.title}</h3>
+        <ol className="service-list">
+          {services.map((s, i) => (
+            <Reveal as="li" className="service" key={s.id} delay={i * 60}>
+              <span className="service__num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="service__title">{s.title}</h3>
+              <div className="service__body">
                 <p>{s.text}</p>
+                <ArrowLink href={s.url}>Explore {s.title}</ArrowLink>
               </div>
+              <span className="service__media">
+                <img src={serviceImages[s.id]} alt="" loading="lazy" />
+              </span>
             </Reveal>
           ))}
-        </div>
-        <Pagination {...paged} onChange={paged.setPage} label="services" />
+        </ol>
 
-        <div className="coming-soon">
-          <span className="coming-soon__label">Coming Soon</span>
-          {comingSoon.map((name) => (
-            <span className="chip" key={name}>
-              {name}
-            </span>
-          ))}
-        </div>
+        <p className="coming-soon">
+          <span>Coming soon</span>
+          {comingSoon.join(' · ')}
+        </p>
       </div>
     </section>
   )
