@@ -2,7 +2,7 @@
 // Edit copy here; components only read from this file.
 
 export const company = {
-  name: 'Supplybase',
+  name: 'SupplyBase',
   tagline: 'One Partner. Complete Project.',
   subTagline: 'Labour + Material + Management — everything under one roof.',
   description:
@@ -13,6 +13,7 @@ export const company = {
 }
 
 export const contact = {
+  googleReviews: 'https://share.google/MhPODKYVUSzWRiMns',
   phones: [
     { label: '+91 91373 06446', href: 'tel:+919137306446' },
     { label: '+91 83569 28520', href: 'tel:+918356928520' },
@@ -30,20 +31,17 @@ export const contact = {
 
 export const navLinks = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
+  { id: 'work', label: 'Our Work' },
+  { id: 'catalogue', label: 'Designs' },
   { id: 'services', label: 'Services' },
-  { id: 'catalogue', label: 'Catalogue' },
-  { id: 'designs', label: 'Designs' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'videos', label: 'Videos' },
-  { id: 'process', label: 'Process' },
+  { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ]
 
 export const hero = {
-  eyebrow: 'Painting · Waterproofing · POP Ceiling · Interiors',
-  titleLines: ['Beautiful Walls.', 'Fresh Beginnings.'],
-  text: 'Home painting, waterproofing, POP ceiling and interior design services in Thane and Mumbai — handled by one accountable team.',
+  eyebrow: 'Construction · Interiors · Painting · POP Ceiling',
+  titleLines: ['Spaces Built', 'Around the Way', 'You Live.'],
+  text: 'Interior design, painting, waterproofing and POP ceiling work for homes in Thane and Mumbai, with labour, material and supervision handled by one accountable team.',
 }
 
 export const about = {
@@ -75,26 +73,31 @@ export const about = {
 export const services = [
   {
     id: 'interior-design',
+    url: 'https://www.supplybase.co.in/services/interior-design',
     title: 'Interior Design',
     text: 'Complete interior design for your home, with room designs and 3D views so you see the finished space before work begins.',
   },
   {
     id: 'interior-by-choice',
+    url: 'https://www.supplybase.co.in/interior-by-choice',
     title: 'Interior by Choice',
     text: 'Pick from ready-made room looks and finishes, and we deliver them with our own labour, materials and supervision.',
   },
   {
     id: 'painting',
+    url: 'https://www.supplybase.co.in/services/painting',
     title: 'Painting',
     text: 'Professional interior and exterior painting that gives your home a fresh look, finished with clean final touch-ups.',
   },
   {
     id: 'waterproofing',
+    url: 'https://www.supplybase.co.in/services/waterproofing',
     title: 'Waterproofing',
     text: 'Waterproofing by trained, verified professionals to protect walls, terraces and bathrooms from leaks and damp.',
   },
   {
     id: 'pop-ceiling',
+    url: 'https://www.supplybase.co.in/services/pop-ceiling-design',
     title: 'POP Ceiling & Design',
     text: 'False ceiling and POP design layouts planned with you at a home visit and finished to a clean handover.',
   },
@@ -178,13 +181,4 @@ export const faqs = [
     q: 'How can I request a different visit time?',
     a: 'Contact our team with your booking number and preferred time. They will help you check availability and the options for your booking.',
   },
-]
-
-// Project gallery filter tabs. Each project in media.js uses one of these ids.
-export const projectCategories = [
-  { id: 'all', label: 'All' },
-  { id: 'painting', label: 'Painting' },
-  { id: 'interiors', label: 'Interiors' },
-  { id: 'pop-ceiling', label: 'POP Ceiling' },
-  { id: 'waterproofing', label: 'Waterproofing' },
 ]
