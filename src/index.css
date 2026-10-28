@@ -1724,7 +1724,13 @@ p {
   box-shadow: 0 1px 0 rgba(84, 62, 28, 0.18);
 }
 
-.pagination .pagination__page.is-active {
+.pagination .pagination__gap {
+  align-self: center;
+  padding: 0 2px;
+  color: var(--muted);
+}
+
+.pagination__page.is-active {
   background: var(--gold-grad);
   color: var(--black);
   border-color: transparent;
@@ -1779,6 +1785,19 @@ p {
     min-width: 36px;
     height: 36px;
   }
+}
+
+/* Second-level tabs (e.g. furniture types) */
+.filters--sub {
+  margin-top: -24px;
+  margin-bottom: 32px;
+  gap: 8px;
+}
+
+.filter--sub {
+  padding: 7px 15px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
 }
 
 /* Phones: category tabs become one swipeable row instead of wrapping */

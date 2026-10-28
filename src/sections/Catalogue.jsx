@@ -8,10 +8,12 @@ import usePaged from '../hooks/usePaged.js'
 
 export default function Catalogue() {
   const [spaceId, setSpaceId] = useState(catalogue[0].id)
+  const [groupId, setGroupId] = useState('all')
   const [lightbox, setLightbox] = useState(null)
 
   const space = catalogue.find((s) => s.id === spaceId)
-  const paged = usePaged(space.items, 4, spaceId)
+  const items = groupId === 'all' ? space.items : space.items.filter((i) => i.group === groupId)
+  const paged = usePaged(items, 4, `${spaceId}-${groupId}`)
 
   useEffect(() => {
     if (!lightbox) return
@@ -26,7 +28,7 @@ export default function Catalogue() {
         <SectionHeading
           eyebrow="Design Gallery"
           title="Interiors, Your Way"
-          text="Choose a ready-made design, ceiling style or waterproofing solution, customise it to your space, and let us install it."
+          text="Choose a ready-made design, furniture piece, ceiling style or waterproofing solution, customise it to your space, and let us install it."
         />
 
         <div className="filters" role="tablist">
@@ -36,16 +38,38 @@ export default function Catalogue() {
               role="tab"
               aria-selected={spaceId === s.id}
               className={`filter ${spaceId === s.id ? 'is-active' : ''}`}
-              onClick={() => setSpaceId(s.id)}
+              onClick={() => {
+                setSpaceId(s.id)
+                setGroupId('all')
+              }}
             >
               {s.title} <span className="filter__count">{s.items.length}</span>
             </button>
           ))}
         </div>
 
+        {space.groups && (
+          <div className="filters filters--sub" role="tablist" aria-label={`${space.title} types`}>
+            {[{ id: 'all', title: 'All' }, ...space.groups].map((g) => (
+              <button
+                key={g.id}
+                role="tab"
+                aria-selected={groupId === g.id}
+                className={`filter filter--sub ${groupId === g.id ? 'is-active' : ''}`}
+                onClick={() => setGroupId(g.id)}
+              >
+                {g.title}{' '}
+                <span className="filter__count">
+                  {g.id === 'all' ? space.items.length : space.items.filter((i) => i.group === g.id).length}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+
         {space.note && <p className="catalogue-space-note">{space.note}</p>}
 
-        <div className="catalogue-grid row-4 page-in" key={`${spaceId}-${paged.page}`}>
+        <div className="catalogue-grid row-4 page-in" key={`${spaceId}-${groupId}-${paged.page}`}>
           {paged.items.map((item) => (
             <button key={item.src} className="catalogue-card tilt" onClick={() => setLightbox(item)}>
               <img src={item.src} alt={item.title} loading="lazy" />
